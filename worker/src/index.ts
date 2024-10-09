@@ -1,4 +1,5 @@
 import { Context, Hono } from "hono";
+import { cors } from "hono/cors";
 import { Kysely } from "kysely";
 import { D1Dialect } from "kysely-d1";
 import { DB } from "./db/schema";
@@ -7,6 +8,21 @@ import { scoreSchema } from "./schema/score";
 import cuid from "cuid";
 
 const app = new Hono<{ Bindings: Env; Variables: { db: Kysely<DB> } }>();
+
+app.use(
+  "*",
+  cors({
+    origin: [
+      "https://solshack.aaronah02.workers.dev",
+      "https://solshack.phrogwrld.dev",
+    ],
+    allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowHeaders: ["Content-Type", "Authorization"],
+    exposeHeaders: ["Content-Length"],
+    maxAge: 600,
+    credentials: true,
+  })
+);
 
 app.use("*", async (c, next) => {
   if (!c.get("db")) {
