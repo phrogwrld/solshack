@@ -17,7 +17,7 @@ interface RoundParameters {
   duration: number;
 }
 
-export const API_URL = "http://solshack-worker.aaronah02.workers.dev";
+export const API_URL = "https://solshack-worker.aaronah02.workers.dev";
 
 export const calculateRoundParameters = (
   roundNumber: number
