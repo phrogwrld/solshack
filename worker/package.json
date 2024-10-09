@@ -1,0 +1,30 @@
+{
+  "name": "worker",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typegen": "wrangler types",
+    "db:push": "node ./prisma/push.mjs",
+    "db:push:local": "node ./prisma/push.mjs --local"
+  },
+  "dependencies": {
+    "@hono/zod-validator": "^0.4.1",
+    "cuid": "^3.0.0",
+    "hono": "^4.6.3",
+    "kysely": "^0.27.4",
+    "kysely-d1": "^0.3.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241004.0",
+    "@types/better-sqlite3": "^7.6.11",
+    "better-sqlite3": "^11.3.0",
+    "dotenv": "^16.4.5",
+    "prisma": "^5.20.0",
+    "prisma-kysely": "^1.8.0",
+    "typescript": "^5.6.3",
+    "wrangler": "^3.80.2"
+  }
+}

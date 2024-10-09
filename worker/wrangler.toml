@@ -1,0 +1,10 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "solshack-worker"
+main = "src/index.ts"
+compatibility_date = "2024-07-01"
+minify = true
+
+[[d1_databases]]
+binding = "DB"                                       # i.e. available in your Worker on env.DB
+database_name = "solshac"
+database_id = "de67e492-408c-4aa3-a764-3de97f84b518"
